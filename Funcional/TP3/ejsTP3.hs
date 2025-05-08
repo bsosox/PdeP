@@ -49,3 +49,9 @@ mejorNota :: (Int, Int) -> Int
 mejorNota (parcial1, recup1)
     | (recup1 == -1) || parcial1 > recup1  = parcial1
     | otherwise = recup1
+
+recursa :: ((Int, Int), (Int, Int)) -> Bool
+recursa notas = not (aprobo . notasFinales $ notas)
+
+recuperoPrimerParcial ::  ((Int, Int), (Int, Int)) -> Bool
+recuperoPrimerParcial notas = ((fst . snd $ notas) /= (-1))
