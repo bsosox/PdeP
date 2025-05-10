@@ -29,3 +29,26 @@ frecuenciaHastaMomento :: Int -> [Int]
 frecuenciaHastaMomento min = primerasNFrecuencias (buscarFrecuencia min) frecuenciaCardiaca 
 
 primerasNFrecuencias n lista = take (n+1) frecuenciaCardiaca
+
+esCapicua :: [[Char]] -> Bool
+esCapicua lista = sonIguales (concatenacion2 lista) (concatenacion2 (map reverse lista))
+
+concatenacion2 lista = plegar (++) [] lista
+
+sonIguales string1 [] = False
+sonIguales [] string2 = False
+sonIguales [] [] = True
+sonIguales (c1:c1s) (c2:c2s) = sonIguales c1s c2s
+
+duracionLlamadas = (("horarioReducido",[20,10,25,15]),("horarioNormal",[10,5,8,2,9,10]))
+
+cuandoHabloMasMinutos
+    | sumatoria(snd . fst $ duracionLlamadas) > sumatoria(snd . snd $ duracionLlamadas) = fst . fst $ duracionLlamadas
+    | otherwise = fst . snd $ duracionLlamadas
+
+cuandoHizoMasLlamadas
+    | longitud(snd . fst $ duracionLlamadas) > longitud(snd . fst $ duracionLlamadas) = fst . fst $ duracionLlamadas
+    | otherwise = fst . snd $ duracionLlamadas
+
+------------------------------
+
